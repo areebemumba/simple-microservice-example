@@ -27,7 +27,9 @@ app = Flask(__name__)
 def quote():
     q = random.choice(quotes) # selects a random quote from file
     return jsonify({"quote": q.quote, "by": q.by}) # return a quote
-
+@app.route("/health")
+def health_check():
+    return jsonify({"status": "healthy"}) # return a quote
 # 404 Erorr for unknown routes
 @app.errorhandler(404)
 def page_not_found(e):
