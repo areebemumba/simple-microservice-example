@@ -29,7 +29,7 @@ def quote():
     return jsonify({"quote": q.quote, "by": q.by}) # return a quote
 @app.route("/health")
 def health_check():
-    return jsonify({"status": "healthy"}) # return a quote
+    return jsonify({"healthy": True}), 200
 # 404 Erorr for unknown routes
 @app.errorhandler(404)
 def page_not_found(e):
